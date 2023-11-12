@@ -13,29 +13,29 @@ def sidebar():
 
         st.header("Layout")
         # ラジオボタン（レイアウト）
-        st.radio(
-            "What's your favorite layout",
-            ["Single Column", "Multi Column", "Full Screen", "Grid"],
-            captions=["Single Column", "Multi Column", "Full Screen", "Grid"],
-        )  # st.radio(label, selected, captions)
+        layout = fs.input_layout()
+        fs.set_value_to_the_session_state("layout", layout)
 
         # スライダー（フォントサイズ）
-        st.slider(
-            "What's your favorite font size?", 0, 100, 5
-        )  # st.slider(label, min, max, step)
+        font_size = fs.input_font_size()
+        fs.set_value_to_the_session_state("font_size", font_size)
 
         # カラーピッカー（色）
-        st.color_picker(
-            "Pick your favorite Color", "#00f900"
-        )  # st.color_pecker(label, first-value)
+        color = fs.input_color()
+        fs.set_value_to_the_session_state("color", color)
 
         st.header("Task-Feature Set")
         # トグル（情報量最大・最小）
-        st.toggle("More Suggested Amount")
+        task_feature_set = fs.input_task_feature_set()
+        fs.set_value_to_the_session_state("task_feature_set", task_feature_set)
 
 
 def container():
     st.write(fs.get_value_from_the_session_state("navigation"))
+    st.write(fs.get_value_from_the_session_state("layout"))
+    st.write(fs.get_value_from_the_session_state("font_size"))
+    st.write(fs.get_value_from_the_session_state("color"))
+    st.write(fs.get_value_from_the_session_state("task_feature_set"))
 
 
 # main関数
