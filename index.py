@@ -8,17 +8,8 @@ def sidebar():
     with st.sidebar:
         st.header("Navigation")
         # マルチセレクト（動画・画像・逐次・全体）
-        if "navigation" not in st.session_state:
-            st.session_state["navigation"] = []
-
-        navigation = st.multiselect(
-            "What's your favorite navigation?",
-            ["Movie", "Image", "Sequentially", "Whole"],
-            ["Movie", "Image", "Sequentially", "Whole"],
-        )  # st.multiselect(label, selected, first-value)
-
-        if navigation:
-            st.session_state["navigation"] = navigation
+        navigation = fs.input_navigation()
+        fs.set_value_to_the_session_state("navigation", navigation)
 
         st.header("Layout")
         # ラジオボタン（レイアウト）
@@ -44,7 +35,7 @@ def sidebar():
 
 
 def container():
-    st.write(st.session_state["navigation"])
+    st.write(fs.get_value_from_the_session_state("navigation"))
 
 
 # main関数
