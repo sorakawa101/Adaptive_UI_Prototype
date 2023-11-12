@@ -40,7 +40,7 @@ def container():
 
 # main関数
 def main():
-    fc.setPageConfig()
+    fc.set_page_config()
     sidebar()
     container()
 
