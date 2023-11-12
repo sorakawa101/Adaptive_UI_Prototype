@@ -1,5 +1,6 @@
 import streamlit as st
 import functions.func_common as fc
+import functions.func_sidebar as fs
 
 
 # * サイドバーコンテンツ
@@ -7,11 +8,17 @@ def sidebar():
     with st.sidebar:
         st.header("Navigation")
         # マルチセレクト（動画・画像・逐次・全体）
-        st.multiselect(
+        if "navigation" not in st.session_state:
+            st.session_state["navigation"] = []
+
+        navigation = st.multiselect(
             "What's your favorite navigation?",
             ["Movie", "Image", "Sequentially", "Whole"],
             ["Movie", "Image", "Sequentially", "Whole"],
         )  # st.multiselect(label, selected, first-value)
+
+        if navigation:
+            st.session_state["navigation"] = navigation
 
         st.header("Layout")
         # ラジオボタン（レイアウト）
@@ -36,10 +43,15 @@ def sidebar():
         st.toggle("More Suggested Amount")
 
 
+def container():
+    st.write(st.session_state["navigation"])
+
+
 # main関数
 def main():
     fc.setPageConfig()
     sidebar()
+    container()
 
 
 # 実行
