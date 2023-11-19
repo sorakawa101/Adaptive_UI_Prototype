@@ -16,25 +16,25 @@ def get_value_from_the_session_state(key):
 
 
 # navigationの入力欄を設置し，入力値を返す関数
-def input_navigation():
-    navigation = st.multiselect(
-        "What's your favorite navigation?",
-        ["Movie", "Image", "Sequentially", "Whole"],
-        ["Movie", "Image", "Sequentially", "Whole"],
+def input_media():
+    media = st.multiselect(
+        "What's your favorite media?",
+        ["Movie", "Image", "Graph", "Text"],
+        ["Movie", "Image", "Graph", "Text"],
     )  # st.multiselect(label, selected, first-value)
 
-    return navigation
+    return media
 
 
 # layoutの入力欄を設置し，入力値を返す関数
-def input_layout():
-    layout = st.radio(
-        "What's your favorite layout",
+def input_navigation():
+    navigation = st.radio(
+        "What's your favorite navigation",
         ["Single Column", "Multi Column", "Full Screen", "Grid"],
         captions=["Single Column", "Multi Column", "Full Screen", "Grid"],
     )  # st.radio(label, selected, captions)
 
-    return layout
+    return navigation
 
 
 # font sizeの入力欄を設置し，入力値を返す関数
