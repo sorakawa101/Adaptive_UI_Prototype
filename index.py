@@ -1,6 +1,9 @@
 import streamlit as st
 import functions.func_common as fc
 import functions.func_sidebar as fs
+import functions.func_media as fm
+import functions.func_assets as fa
+
 
 
 # * サイドバーコンテンツ
@@ -32,11 +35,15 @@ def sidebar():
 
 
 def container():
-    st.write(fs.get_value_from_the_session_state("media"))
-    st.write(fs.get_value_from_the_session_state("navigation"))
-    st.write(fs.get_value_from_the_session_state("font_size"))
-    st.write(fs.get_value_from_the_session_state("color"))
-    st.write(fs.get_value_from_the_session_state("task_feature_set"))
+    fm.media_text_recipe()
+    fm.media_image_recipe()
+    fm.media_video_recipe()
+    fm.media_graph_recipe()
+    # st.write(fs.get_value_from_the_session_state("media"))
+    # st.write(fs.get_value_from_the_session_state("navigation"))
+    # st.write(fs.get_value_from_the_session_state("font_size"))
+    # st.write(fs.get_value_from_the_session_state("color"))
+    # st.write(fs.get_value_from_the_session_state("task_feature_set"))
 
 
 # main関数

@@ -19,8 +19,8 @@ def get_value_from_the_session_state(key):
 def input_media():
     media = st.multiselect(
         "What's your favorite media?",
-        ["Movie", "Image", "Graph", "Text"],
-        ["Movie", "Image", "Graph", "Text"],
+        ["Text", "Image", "Video", "Graph"],
+        ["Text", "Image", "Video", "Graph"],
     )  # st.multiselect(label, selected, first-value)
 
     return media
