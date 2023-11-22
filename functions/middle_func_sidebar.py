@@ -25,7 +25,8 @@ def input_media():
 
     return media
 
-def view_media():
+# 'media'のサイドバー表示・入出力管理をする関数
+def view_and_io_media():
     st.header("Media")
     # マルチセレクト（動画・画像・逐次・全体）
     media = input_media()
@@ -41,6 +42,12 @@ def input_navigation():
     )  # st.radio(label, selected, captions)
 
     return navigation
+
+def view_and_io_navigation():
+    st.header("Navigation")
+    # ラジオボタン（レイアウト）
+    navigation = input_navigation()
+    set_value_to_the_session_state("navigation", navigation)
 
 
 # font sizeの入力欄を設置し，入力値を返す関数

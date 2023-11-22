@@ -7,12 +7,11 @@ import functions.middle_func_sidebar as mfs
 # * サイドバーコンテンツ
 def sidebar():
     with st.sidebar:
-        mfs.view_media()
+        # 'media'欄
+        mfs.view_and_io_media()
 
-        st.header("Navigation")
-        # ラジオボタン（レイアウト）
-        navigation = mfs.input_navigation()
-        mfs.set_value_to_the_session_state("navigation", navigation)
+        # 'navigation'欄
+        mfs.view_and_io_navigation()
 
         st.header("Layout")
         # スライダー（フォントサイズ）
@@ -30,7 +29,7 @@ def sidebar():
 
 
 def container():
-    ufs.set_medias(mfs.get_value_from_the_session_state('media'))
+    ufs.set_adaptive_ui()
     # st.write(mfs.get_value_from_the_session_state("media"))
     # st.write(mfs.get_value_from_the_session_state("navigation"))
     # st.write(mfs.get_value_from_the_session_state("font_size"))
