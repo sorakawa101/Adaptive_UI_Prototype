@@ -1,19 +1,19 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import functions.func_assets as fa
+import functions.lowwer_func_assets as fa
 
 
-def media_text_recipe():
+def media_text_recipe_container():
     texts_container(fa.abstList1)
 
-def media_image_recipe():
+def media_image_recipe_container():
     images_container(fa.imgList1, fa.abstList1)
 
-def media_video_recipe():
+def media_video_recipe_container():
     videos_container(fa.movList1, fa.abstList1)
 
-def media_graph_recipe():
+def media_graph_recipe_container():
     graph_container()
 
 

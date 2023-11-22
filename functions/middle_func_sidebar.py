@@ -25,6 +25,12 @@ def input_media():
 
     return media
 
+def view_media():
+    st.header("Media")
+    # マルチセレクト（動画・画像・逐次・全体）
+    media = input_media()
+    set_value_to_the_session_state("media", media)
+
 
 # layoutの入力欄を設置し，入力値を返す関数
 def input_navigation():
